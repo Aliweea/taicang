@@ -33,7 +33,7 @@ config/model_rent.conf：相应的配置文件。
 
 1、从租房和非租房信息中识别租房
 db_sqltrain可以设置为
-'''
+```
 SELECT
 	a.ID,
 	a.JZWID,
@@ -52,12 +52,12 @@ FROM
 WHERE
 	a.DEL_FLAG = '0' 
 	AND a.SFZX = 0
-'''
+```
 db_sqltest 可以直接从训练数据表拿数据
 
 2、从租房和群租房中识别群住房
 db_sqltrain可以设置为
-'''
+```
 SELECT
 	a.ID,
 	a.JZWID,
@@ -77,7 +77,7 @@ WHERE
 	a.DEL_FLAG = '0' 
 	AND a.SFZX = 0 
     AND a.FWQK in ('21', '22', '9') 
-'''
+```
 db_sqltest 可以直接从训练数据表拿数据
 
 *调用方式：*
