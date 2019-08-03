@@ -120,24 +120,16 @@ def accuracy_metric(actual, predicted):
     :return tn: 实际为真，预测为假的个数
     :return fn: 实际为假，预测为假的个数
     '''
-    n = len(actual)
-    correct = 0
-    tp=0
-    tn=0
-    fp=0
-    fn=0
-    for i in range(n):
-        if actual[i] == predicted[i]:
-            correct += 1
-            if(actual[i] == 1):
-                tp = tp + 1
-            else:
-                fp = fp + 1
+    tp, tn, fp, fn = 0, 0, 0, 0
+    for i in range(len(actual)) :
+        if (actual[i] == 1 and predicted[i] == 1) :
+            tp += 1
+        elif (actual[i] == 1 and predicted[i] == 0):
+            tn += 1
+        elif (actual[i] == 0 and predicted[i] == 1):
+            fp += 1
         else:
-            if (actual[i] == 1):
-                tn = tn + 1
-            else:
-                fn = fn + 1
+            fn += 1
     return tp, tn, fp, fn
 
 
